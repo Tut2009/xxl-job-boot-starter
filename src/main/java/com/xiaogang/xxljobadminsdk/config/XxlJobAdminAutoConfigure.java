@@ -18,6 +18,8 @@ import com.xxl.job.core.util.IpUtil;
 import com.xxl.job.core.util.NetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@ConditionalOnProperty(prefix = "", value = "enable", matchIfMissing = true)
 @EnableConfigurationProperties(XxlJobAdminProperties.class)
 public class XxlJobAdminAutoConfigure {
 
